@@ -10,7 +10,7 @@ int main(){
     scanf("%d",&option);
 
     //for encryption
-    if(option ==1 ){
+    if(option==1){
         char Input[100];
         char ch;
         int key,length;
@@ -22,24 +22,24 @@ int main(){
         printf("\nEnter Key.\n");
         scanf("%d",&key);
 
-        length = strlen(Input);
+        length=strlen(Input);
 
-        for(int i = 0; Input[i] != '\0'; ++i){
-            ch = Input[i];
+        for(int i=0;Input[i]!='\0';++i){
+            ch=Input[i];
             //encrypt for lowercase letter
-            if (ch >= 'a' && ch <= 'z'){
-                ch = ch + key;
-                if (ch > 'z') {
-                    ch = ch - 'z' + 'a' - 1;
+            if(ch>='a' && ch<='z'){
+                ch=ch+key;
+                if(ch>'z') {
+                    ch=ch-'z'+'a'-1;
                 }
-                Input[i] = ch;
+                Input[i]=ch;
             }else if (ch >= 'A' && ch <= 'Z'){
             //encrypt for uppercase letter
-                ch = ch + key;
-                if (ch > 'Z'){
-                    ch = ch - 'Z' + 'A' - 1;
+                ch=ch+key;
+                if(ch>'Z'){
+                    ch=ch-'Z'+'A'-1;
                 }
-                Input[i] = ch;
+                Input[i]=ch;
             }
         }
         printf("Encrypted message: %s", Input);
@@ -55,26 +55,26 @@ int main(){
         printf("\nEnter Key.\n");
         scanf("%d",&key);
 
-        length = strlen(Input);
-        
-        for(int i = 0; Input[i] != '\0'; ++i) {
-        ch = Input[i];
-        //decrypt for lowercase letter
-        if(ch >= 'a' && ch <= 'z'){
-            ch = ch - key;
-            if(ch < 'a'){
-                ch = ch + 'z' - 'a' + 1;
+        length=strlen(Input);
+
+        for(int i=0;Input[i]!='\0';++i){
+            ch = Input[i];
+            //decrypt for lowercase letter
+            if(ch>='a' && ch<='z'){
+                ch=ch-key;
+                if(ch<'a'){
+                    ch=ch+'z'-'a'+1;
+                }
+            Input[i]=ch;
+            }else if(ch>='A' && ch<='Z'){
+            //decrypt for uppercase letter
+            ch=ch-key;
+            if(ch<'A'){
+               ch=ch+'Z'-'A'+1;
             }
-            Input[i] = ch;
-        }else if(ch >= 'A' && ch <= 'Z'){
-        //decrypt for uppercase letter
-            ch = ch - key;
-            if(ch < 'A') {
-               ch = ch + 'Z' - 'A' + 1;
+            Input[i]=ch;
             }
-            Input[i] = ch;
-         }
-      }
+        }
       printf("Decrypted message: %s",Input);
     }else{
         printf("Wrong Input Is Given");
